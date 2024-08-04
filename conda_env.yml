@@ -30,4 +30,7 @@ dependencies:
       - autopep8
       - python-multipart==0.0.9
       - imageio
+      - rasterio
+      - pyproj
+
 
