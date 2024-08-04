@@ -21,13 +21,13 @@ dependencies:
   - pytorch-cuda=12.1
   #  - cudatoolkit=11.8  # preinstalled
   - pip:
-      - fastapi
-      - uvicorn[standard]
+      - tensorboard
+      # - fastapi
+      # - uvicorn[standard]
       - httpx==0.27.0
       - pytest==8.1.1
       - pylint
       - autopep8
       - python-multipart==0.0.9
-      - wandb==0.17.0
-      - pillow==9.5  # V10 causes 'FreeTypeFont' object has no attribute 'getsize' error
+      - imageio
 
