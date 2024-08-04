@@ -1,0 +1,33 @@
+name: inference_api
+channels:
+  - conda-forge
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  - pip=23.3
+  - python=3.8.18
+  - numpy=1.24.3
+  - pandas=2.0.3
+  - pyyaml=6.0.1
+  - scikit-learn=1.3.2
+  - ipykernel=6.29.3
+  - mesa-libgl-cos6-x86_64
+  - git-lfs
+# use RunPod Pytorch 2.1, runpod/pytorch: 2.1.0-py3.10-cuda11.8.0-devel-ubuntu22.04
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1
+  #  - cudatoolkit=11.8  # preinstalled
+  - pip:
+      - fastapi
+      - uvicorn[standard]
+      - httpx==0.27.0
+      - pytest==8.1.1
+      - pylint
+      - autopep8
+      - python-multipart==0.0.9
+      - wandb==0.17.0
+      - pillow==9.5  # V10 causes 'FreeTypeFont' object has no attribute 'getsize' error
+
