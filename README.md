@@ -30,7 +30,7 @@ runpodctl create pod --name 'TrainTestAPI' \
 - ```ngrok_static_domain```
  
 ```bash
-git clone https://$GIT_USERNAME:$GIT_TOKEN@github.com/VolaTeQ/volateq_mlapi.git /workspace/volateq_mlapi/
+git clone https://$GIT_USERNAME:$GIT_TOKEN@github.com/pdlje82/DigTwins.git /workspace/DigTwins/
 ```
 
 ### Run the script

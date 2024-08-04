@@ -17,7 +17,7 @@ export PATH=$PATH:/workspace/ngrok
 # Set up git
 git lfs install
 git config --global user.email "$GIT_USERNAME$"  # suppose you use the email address as your username
-cd /workspace/volateq_mlapi/
+cd /workspace/venv_DT/
 git lfs pull
 
 # Install Miniforge and Mamba
@@ -32,25 +32,11 @@ source /workspace/miniforge3/bin/activate # required so the rest of the script w
 
 # Create and activate the virtual environment
 echo "Creating Mamba environment..."
-mamba env create -f /workspace/volateq_mlapi/conda_env_s3.yml
-conda activate inference_api
+mamba env create -f /workspace/DigTwins/conda_env.yml
+conda activate venv_DT
 
 # Add Virtual Environment to Jupyter Notebook
-python -m ipykernel install --user --name=inference_api
-
-# Clone the YOLOv5 Repository
-echo "Cloning repositories..."
-git clone https://github.com/ultralytics/yolov5.git /workspace/yolov5
-cd /workspace/yolov5
-git checkout tags/v7.0
-
-# Install YOLOv5 Python dependencies
-cd /workspace/yolov5
-pip install --cache-dir=/workspace/.pip-cache -r requirements.txt
-
-# Correct erroneous yolo wandb logger init
-chmod +x /workspace/volateq_mlapi/scripts/modify_yolo_logger_init.sh
-. /workspace/volateq_mlapi/scripts/modify_yolo_logger_init.sh
+python -m ipykernel install --user --name=venv_DT
 
 # # Start NGROK
 # ngrok config add-authtoken $ngrok_auth_token
@@ -59,7 +45,7 @@ chmod +x /workspace/volateq_mlapi/scripts/modify_yolo_logger_init.sh
 # nohup ngrok http 8000 &  # Start with ephemeral domain
 
 # Start app
-conda activate inference_api
+conda activate venv_DT
 # cd /workspace/volateq_mlapi/source
 # uvicorn ML_api:app --host 0.0.0.0 --port 8000 --reload
 
