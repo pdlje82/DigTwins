@@ -48,6 +48,11 @@ def setup_logging(default_level=logging.INFO):
                 'level': default_level,
                 'propagate': False,
             },
+            'torch_img': {
+                'handlers': ['console', 'file_data'],
+                'level': default_level,
+                'propagate': False,
+            },
         },
         'root': {
             'handlers': ['console'],

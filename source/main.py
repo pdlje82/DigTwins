@@ -1,5 +1,6 @@
 # main.py
 from data import load_data, load_geotiff
+import torch_img
 import logging
 import logger_config
 
@@ -12,9 +13,11 @@ def main():
     # Specify the path to the image
 
     # Load the image
-    # image = load_data(img_path)
+    image = load_data(img_path)
 
     image, metadata, transform, crs = load_geotiff(img_path)
+    # copy image to pytorch tensor
+    my_torch_ortho_img = torch_img.TorchOrthoImage(image)
 
 if __name__ == "__main__":
     main()
